@@ -8,7 +8,7 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <dialog id="addDiag">
+    <dialog id="add-diag">
             <form method="dialog">
                 <div class="first">
                     <label for="title">Title</label>
@@ -29,6 +29,25 @@
             </form>
     </dialog>
 
+    <dialog id="edit-diag">
+        <form method="dialog">
+            <div class="first">
+                <label for="title">Title</label>
+                <input type="text" id="title-inp">
+            </div>
+            <div class="second">
+                <label for="descrip">Description</label>
+                <input type="text" name="" id="descrip-inp">
+            </div>
+            <div class="third">
+                <label for="complete">Completed?</label>
+                <input type="checkbox" name="complete" id="complete-inp">
+            </div>
+            <div class="fourth">
+                <button class="finish-btn">Finish</button>
+            </div>
+        </form>
+    </dialog>
     <button class="add-btn">Add</button>
     <div class="container">
 

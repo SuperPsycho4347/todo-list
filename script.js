@@ -1,12 +1,14 @@
 const addBtn = document.querySelector('.add-btn')
 const submitBtn = document.querySelector('.submit-btn')
 const cancelBtn = document.querySelector('.cancel-btn')
+const finishBtn = document.querySelector('.finish-btn')
 const wholeContainer = document.querySelector('.container')
 
-const diag = document.querySelector('dialog')
+const addDiag = document.querySelector('#add-diag')
+const editDiag = document.querySelector('#edit-diag')
 
 addBtn.addEventListener('click', () => {
-    diag.showModal()
+    addDiag.showModal()
 })
 
 submitBtn.addEventListener('click', () => {
@@ -23,12 +25,33 @@ submitBtn.addEventListener('click', () => {
 
     populate(currList)
 
-    diag.close()
+    addDiag.close()
 })
 
 cancelBtn.addEventListener('click', () => {
     diag.close()
 })
+
+
+class List {
+    constructor(title, description, checked) {
+        this.title = title
+        this.description = description
+        this.checked = checked
+    }
+
+    getTitle() {
+        return this.title
+    }
+
+    getDescription() {
+        return this.description
+    }
+
+    getChecked() {
+        return this.checked
+    }
+}
 
 function populate(currList) {
     const listCard = document.createElement('div')
@@ -50,28 +73,24 @@ function populate(currList) {
     checked.textContent = check
     checked.classList.add('checked-card')
 
+    const editBtn = document.createElement('button')
+    editBtn.textContent = "Edit"
+    editBtn.classList.add('edit-btn')
+
     listCard.appendChild(title)
     listCard.appendChild(description)
     listCard.appendChild(checked)
+    listCard.appendChild(editBtn)
     wholeContainer.appendChild(listCard)
+
+    editBtn.addEventListener('click', () => {
+        editDiag.showModal()
+    })
+
+    finishBtn.addEventListener('click', () => {
+        editDiag.close
+    })
 }
 
-class List {
-    constructor(title, description, checked) {
-        this.title = title
-        this.description = description
-        this.checked = checked
-    }
 
-    getTitle() {
-        return this.title
-    }
 
-    getDescription() {
-        return this.description
-    }
-
-    getChecked() {
-        return this.checked
-    }
-}
